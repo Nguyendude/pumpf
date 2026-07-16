@@ -26,14 +26,14 @@ export default function CreateCoin() {
   return (
     <MainLayout>
       <div className="max-w-2xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Create a New Coin</h1>
-          <p className="text-foreground/60">Launch your meme coin on pump.fun</p>
+        <div className="mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-1">Create a New Coin</h1>
+          <p className="text-sm md:text-base text-foreground/60">Launch your meme coin on pump.fun</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-card border border-border rounded-lg p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="bg-card border border-border rounded-lg p-5 md:p-6 space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-foreground mb-2">
+            <label className="block text-xs md:text-sm font-semibold text-foreground mb-1.5">
               Coin Name
             </label>
             <input
@@ -41,13 +41,13 @@ export default function CreateCoin() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="e.g., Doge Coin"
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary"
+              className="w-full px-3 md:px-4 py-2 bg-background border border-border rounded-lg text-sm md:text-base text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-foreground mb-2">
+            <label className="block text-xs md:text-sm font-semibold text-foreground mb-1.5">
               Symbol
             </label>
             <input
@@ -55,27 +55,27 @@ export default function CreateCoin() {
               value={formData.symbol}
               onChange={(e) => setFormData({ ...formData, symbol: e.target.value })}
               placeholder="e.g., DOGE"
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary"
+              className="w-full px-3 md:px-4 py-2 bg-background border border-border rounded-lg text-sm md:text-base text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-foreground mb-2">
+            <label className="block text-xs md:text-sm font-semibold text-foreground mb-1.5">
               Description
             </label>
             <textarea
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               placeholder="Tell us about your coin..."
-              rows={4}
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary resize-none"
+              rows={3}
+              className="w-full px-3 md:px-4 py-2 bg-background border border-border rounded-lg text-sm md:text-base text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary resize-none"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-foreground mb-2">
+            <label className="block text-xs md:text-sm font-semibold text-foreground mb-1.5">
               Image URL
             </label>
             <input
@@ -83,14 +83,14 @@ export default function CreateCoin() {
               value={formData.image}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
               placeholder="https://example.com/image.png"
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary"
+              className="w-full px-3 md:px-4 py-2 bg-background border border-border rounded-lg text-sm md:text-base text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full px-6 py-3 bg-secondary hover:bg-secondary/90 text-background font-semibold rounded-lg transition-colors"
+            className="w-full px-5 md:px-6 py-2 md:py-3 bg-secondary hover:bg-secondary/90 text-background font-semibold rounded-lg transition-colors text-sm md:text-base"
             disabled={!isConnected}
           >
             {isConnected ? 'Create Coin' : 'Connect Wallet First'}

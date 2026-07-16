@@ -32,15 +32,15 @@ export default function TokenDetail({ params }: { params: { id: string } }) {
 
   return (
     <MainLayout>
-      <div className="space-y-8">
+      <div className="space-y-4 md:space-y-6">
         {/* Token Header */}
-        <div className="bg-card border border-border rounded-lg p-8">
-          <div className="flex items-start gap-6">
-            <div className="w-32 h-32 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex-shrink-0" />
+        <div className="bg-card border border-border rounded-lg p-4 md:p-6">
+          <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
+            <div className="w-24 md:w-32 h-24 md:h-32 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex-shrink-0" />
             <div className="flex-1">
-              <h1 className="text-4xl font-bold text-foreground mb-2">Doge Token</h1>
-              <p className="text-xl text-foreground/60 mb-4">DOGE</p>
-              <div className="space-y-2 text-sm">
+              <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-1">Doge Token</h1>
+              <p className="text-base md:text-xl text-foreground/60 mb-2 md:mb-3">DOGE</p>
+              <div className="space-y-1 text-xs md:text-sm">
                 <p className="text-foreground/70">
                   <span className="font-semibold text-foreground">Market Cap:</span> $2.1M
                 </p>
@@ -52,11 +52,11 @@ export default function TokenDetail({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {/* Chart */}
-          <div className="col-span-2 bg-card border border-border rounded-lg p-8">
-            <h2 className="text-xl font-bold text-foreground mb-6">Price Chart</h2>
-            <ResponsiveContainer width="100%" height={300}>
+          <div className="md:col-span-2 bg-card border border-border rounded-lg p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-foreground mb-4">Price Chart</h2>
+            <ResponsiveContainer width="100%" height={250}>
               <LineChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                 <XAxis dataKey="time" stroke="var(--foreground)" opacity={0.5} />
@@ -82,11 +82,11 @@ export default function TokenDetail({ params }: { params: { id: string } }) {
           </div>
 
           {/* Buy Form */}
-          <div className="bg-card border border-border rounded-lg p-6 h-fit">
-            <h3 className="text-lg font-bold text-foreground mb-6">Buy Token</h3>
-            <form onSubmit={handleBuy} className="space-y-4">
+          <div className="bg-card border border-border rounded-lg p-4 md:p-5 h-fit">
+            <h3 className="text-base md:text-lg font-bold text-foreground mb-4">Buy Token</h3>
+            <form onSubmit={handleBuy} className="space-y-3">
               <div>
-                <label className="block text-sm text-foreground/70 mb-2">
+                <label className="block text-xs md:text-sm text-foreground/70 mb-1.5">
                   Amount (ETH)
                 </label>
                 <input
@@ -95,19 +95,19 @@ export default function TokenDetail({ params }: { params: { id: string } }) {
                   value={buyAmount}
                   onChange={(e) => setBuyAmount(e.target.value)}
                   placeholder="0.1"
-                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary"
+                  className="w-full px-3 md:px-4 py-2 bg-background border border-border rounded-lg text-sm md:text-base text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary"
                   required
                 />
               </div>
 
               <div className="pt-2 border-t border-border">
-                <p className="text-sm text-foreground/70 mb-2">You will receive</p>
-                <p className="text-2xl font-bold text-primary">~1,000 DOGE</p>
+                <p className="text-xs md:text-sm text-foreground/70 mb-1">You will receive</p>
+                <p className="text-lg md:text-2xl font-bold text-primary">~1,000 DOGE</p>
               </div>
 
               <button
                 type="submit"
-                className="w-full px-4 py-3 bg-secondary hover:bg-secondary/90 text-background font-semibold rounded-lg transition-colors"
+                className="w-full px-4 py-2 md:py-3 bg-secondary hover:bg-secondary/90 text-background font-semibold rounded-lg transition-colors text-sm md:text-base"
                 disabled={!isConnected}
               >
                 {isConnected ? 'Buy DOGE' : 'Connect Wallet'}
@@ -117,26 +117,26 @@ export default function TokenDetail({ params }: { params: { id: string } }) {
         </div>
 
         {/* Comments Section */}
-        <div className="bg-card border border-border rounded-lg p-8">
-          <h2 className="text-xl font-bold text-foreground mb-6">Comments</h2>
-          <div className="space-y-4">
+        <div className="bg-card border border-border rounded-lg p-4 md:p-6">
+          <h2 className="text-lg md:text-xl font-bold text-foreground mb-4">Comments</h2>
+          <div className="space-y-3">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="border-b border-border pb-4">
-                <p className="text-sm text-foreground/70 mb-2">User #{i}</p>
-                <p className="text-foreground">This is a great token!</p>
+              <div key={i} className="border-b border-border pb-3">
+                <p className="text-xs md:text-sm text-foreground/70 mb-1">User #{i}</p>
+                <p className="text-sm md:text-base text-foreground">This is a great token!</p>
               </div>
             ))}
           </div>
 
-          <form className="mt-6 space-y-4">
+          <form className="mt-4 space-y-3">
             <textarea
               placeholder="Write a comment..."
-              rows={3}
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary resize-none"
+              rows={2}
+              className="w-full px-3 md:px-4 py-2 bg-background border border-border rounded-lg text-sm md:text-base text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary resize-none"
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-semibold"
+              className="px-3 md:px-4 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-semibold text-sm md:text-base"
             >
               Post Comment
             </button>

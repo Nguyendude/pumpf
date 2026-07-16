@@ -88,28 +88,28 @@ export default function Home() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <div className="mb-12">
-        <div className="space-y-6">
+      <div className="mb-6 md:mb-8">
+        <div className="space-y-4">
           <div>
-            <h1 className="text-4xl font-bold text-foreground mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-1">
               Fun & real time <span className="text-foreground/60">graph</span>
             </h1>
-            <p className="text-xl text-foreground/80 flex items-center gap-2">
-              with <div className="w-6 h-6 bg-primary rounded-full" /> pump.fun
+            <p className="text-lg md:text-xl text-foreground/80 flex items-center gap-2">
+              with <div className="w-5 h-5 md:w-6 md:h-6 bg-primary rounded-full" /> pump.fun
             </p>
           </div>
 
           {/* Search Bar */}
-          <div className="bg-card border border-border rounded-lg px-4 py-3 flex items-center gap-3">
-            <Search size={20} className="text-foreground/50" />
+          <div className="bg-card border border-border rounded-lg px-3 md:px-4 py-2.5 md:py-3 flex items-center gap-2 md:gap-3">
+            <Search size={18} className="text-foreground/50 flex-shrink-0" />
             <input
               type="text"
               placeholder="Search for token"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 bg-transparent border-none outline-none text-foreground placeholder-foreground/50"
+              className="flex-1 bg-transparent border-none outline-none text-sm md:text-base text-foreground placeholder-foreground/50"
             />
-            <button className="px-4 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-semibold">
+            <button className="px-3 md:px-4 py-1.5 md:py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-semibold text-sm">
               Search
             </button>
           </div>
@@ -117,18 +117,18 @@ export default function Home() {
       </div>
 
       {/* Trending Section */}
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
-            <span className="text-red-500">🔥</span> Now Trending
+      <div className="space-y-4">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground flex items-center gap-2">
+            <span>🔥</span> Now Trending
           </h2>
-          <div className="flex gap-4 text-sm">
+          <div className="flex flex-wrap gap-3 md:gap-4 text-xs md:text-sm">
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
                 checked={showAnimations}
                 onChange={(e) => setShowAnimations(e.target.checked)}
-                className="w-4 h-4"
+                className="w-3.5 h-3.5 md:w-4 md:h-4"
               />
               <span className="text-foreground/70">Show animations</span>
             </label>
@@ -137,7 +137,7 @@ export default function Home() {
                 type="checkbox"
                 checked={includeNSFW}
                 onChange={(e) => setIncludeNSFW(e.target.checked)}
-                className="w-4 h-4"
+                className="w-3.5 h-3.5 md:w-4 md:h-4"
               />
               <span className="text-foreground/70">Include nsfw</span>
             </label>
@@ -145,7 +145,7 @@ export default function Home() {
         </div>
 
         {/* Token Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {filteredTokens.map((token) => (
             <TokenCard key={token.id} {...token} />
           ))}
